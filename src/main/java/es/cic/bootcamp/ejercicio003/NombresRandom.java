@@ -1,9 +1,10 @@
 package es.cic.bootcamp.ejercicio003;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class NombresRandom {
-	Map<Integer, String> mapa;
+	Map<Integer, String> mapa = new HashMap<>();
 	private int tamaño;
 	
 	public NombresRandom(Persona... p) {
@@ -27,7 +28,7 @@ public class NombresRandom {
 	}
 	
 	public Persona[] devuelveVariasPersonas(int personasADevolver) {
-		int eleccion = tamaño+1;
+		int eleccion = tamaño;
 		Persona[] elecciones = new Persona[personasADevolver];
 		for(int i = 0; i < personasADevolver; i++) {
 			int eleccionPrevia = (int) Math.floor(Math.random()*(tamaño+1));
@@ -43,5 +44,11 @@ public class NombresRandom {
 		
 		return elecciones;
 		
+	}
+	
+	public String[] devuelveLista() {
+		String[] lista = new String[tamaño];
+		lista = mapa.values().toArray(lista);
+		return lista;
 	}
 }
